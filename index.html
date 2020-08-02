@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vue Tutorial Game - Project 1</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="title">Player Fight!</h1>
+      <h6 class=""></h6>
+      <div class="players-box">
+        <div id="player-1" class="player">
+          <div class="player-health">
+            <div
+              class="player-health-bar"
+              id="player-health-1"
+              :style="player1HealthStyles"
+            >
+              <span class="player-health-text" v-if="player1.health > 20"
+                >Player 1</span
+              >
+            </div>
+          </div>
+        </div>
+        <div id="player-2" class="player">
+          <div class="player-health">
+            <div
+              class="player-health-bar"
+              id="player-health-2"
+              :style="player2HealthStyles"
+            >
+              <span class="player-health-text" v-if="player2.health > 20"
+                >Player 2</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-if="player2.health <= 0" class="message">
+        <h6 class="you-win">You Win!</h6>
+      </div>
+      <div v-if="player1.health <= 0" class="message">
+        <h6 class="you-lose">You Lose!</h6>
+      </div>
+      <div class="action-button-box">
+        <button
+          type="button"
+          class="action-button"
+          id="attack-button"
+          @click="attack"
+        >
+          Attack
+        </button>
+        <button
+          type="button"
+          class="action-button"
+          id="special-attack-button"
+          @click="attack"
+        >
+          Special Attack
+        </button>
+        <button
+          type="button"
+          class="action-button"
+          id="heal-button"
+          @click="heal"
+        >
+          Heal
+        </button>
+        <button
+          type="button"
+          class="action-button"
+          id="reset-button"
+          @click="reset"
+        >
+          Reset
+        </button>
+      </div>
+      <div v-if="actionLog.length" class="action-log__container">
+        <ul class="action-log">
+          <li
+            v-for="action in actionLog"
+            class="action-log__row"
+            :class="[{attack: action.name === 'attack'}, {'special-attack': action.name === 'special attack'}, {heal: action.name === 'heal'}]"
+          >
+            {{ action.actor }} - {{ action.name }} - {{ action.value }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+}
+
+#app {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.players-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.player {
+  width: 50%;
+  padding: 20px;
+}
+
+.player:nth-child(odd) {
+  margin-right: 10px;
+}
+
+.player:nth-child(even) {
+  margin-left: 10px;
+}
+
+.player-health {
+  display: flex;
+  margin: 20px;
+  border: 1px solid black;
+  background-color: lightgrey;
+}
+
+.player-health-bar {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border: 1px solid black;
+  height: 20px;
+}
+
+.player-health-text {
+  color: white;
+  text-align: center;
+}
+
+.action-button-box {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.action-button {
+  margin: 0 10px;
+  width: 25%;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  color: white;
+  padding: 5px;
+  margin: 5px 0;
+}
+li:first-child {
+  margin-top: 0;
+}
+li:last-child {
+  margin-bottom: 0;
+}
+
+.attack {
+  background-color: red;
+}
+
+.special-attack {
+  background-color: darkred;
+}
+
+.heal {
+  background-color: blue;
+}
